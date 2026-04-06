@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+
+    <div id="caixa" style="width: 50px; height: 50px; position: absolute; left: 0px; top: 0px">
+
+    </div>
+
+    <p id="pato" style="color: white;">a</p>
+    <script>
+        let caixa = document.getElementById("caixa");
+        let x = 0
+        let y = 0;
+        let direcao = ""
+        document.addEventListener('keydown',(e)=>{
+            direcao = e.key;
+        });
+
+        texto = document.getElementById('pato')    
+        setInterval(()=>{
+            cor = Math.floor(Math.random()*4095);
+        hex = cor.toString(16);
+        texto.innerText = hex;
+
+        caixa.style.backgroundColor = `#${hex}`;
+        }, 100)
+        
+        setInterval(()=>{
+            switch(direcao){
+                case "ArrowRight": x+=5; break;
+                case "ArrowDown": y+=5; break;
+                case "ArrowLeft": x -=5; break;
+                case "ArrowUp": y -=5; break;
+        
+        }
+        caixa.style.left = x + "px";
+        caixa.style.top = y + "px";
+
+        
+
+        },50);
+        
+    </script>
+</html>
